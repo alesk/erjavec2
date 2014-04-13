@@ -113,11 +113,12 @@ nav li {
 .content .slogan {
   position: absolute;
   top: 2em;
-  left: 1em;
-  font-size: 1.5em;
-  color: #3a342b;
-  text-shadow: 1px 1px 0px #fff;
-  font-family: 'Source Sans Pro', sans-serif;
+  left: 0em;
+  font-size: 2.1em;
+  color: #ffe5e5;
+  text-shadow: 1px 1px 0px #262222;
+  letter-spacing: 1px;
+  line-height: 132%;
 }
 
 /* rant */
