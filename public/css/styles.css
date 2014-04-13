@@ -14,7 +14,7 @@ header {
 header > section, nav > ul, footer > section, section.content {
   position: relative;
   margin: 0 auto;
-  width: 960px;
+  max-width: 960px;
 }
 
 header > section {
@@ -39,6 +39,12 @@ header .slogan {
   text-align: right;
   color: #999;
   text-shadow: 1px 1px 0px #000;
+}
+
+@media (max-width: 980px) {
+  header .slogan {
+    right: 1em;
+  }
 }
 
 header .slogan h2 {
@@ -123,12 +129,10 @@ footer {
   width: 100%;
 }
 
-footer section {
-  margin-top: 1em;
-}
-
 footer section p {
+  margin: 1em;
   display: inline-block;
+  margin-right:2em;
 }
 
 footer section p.opening {
