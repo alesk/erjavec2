@@ -1,3 +1,9 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro|Titillium+Web&subset=latin,latin-ext);
+
+body {
+  font-family: 'Titillium Web', sans-serif;
+}
+
 header {
   width: 100%;
   background-color: #111;
@@ -5,7 +11,7 @@ header {
 }
 
 
-header > section, footer > section, section.content{
+header > section, nav > ul, footer > section, section.content {
   position: relative;
   margin: 0 auto;
   width: 960px;
@@ -28,48 +34,97 @@ header .logo img {
 header .slogan {
   position: absolute;
   color: #fff;
-  top: 1em;
+  top: 0.9em;
   right: 0;
+  text-align: right;
+  color: #999;
+  text-shadow: 1px 1px 0px #000;
 }
 
-header nav ul {
+header .slogan h2 {
+  font-size: 1.2em;
+  line-height: 1.4em;
+}
+
+header .slogan p {
+  font-size: 0.9em;
+}
+
+
+
+header .slogan a {
+  text-decoration: none;
+  color: #999;
+}
+
+/* navigation part */
+
+nav {
   background: #c22c2f; 
   background-image: -webkit-linear-gradient(#c22c2f, #540c0d);
+}
+
+nav ul {
   padding: 0.5em 0 0.5em 5em;
   color: #eee;
 }
 
-header nav a {
+nav a {
   color: #eee;
 }
 
-header nav li {
+nav li {
   display: inline-block;
 }
 
 /* Content part */
 
-.projector {
-  width: 100%;
-  height: 80%;
-  background: #ddd;
-}
-
-section.content {
+.central {
+  position: relative;
   height: 500px;
 }
 
-section.content .slogan {
+#maximage {
   position: absolute;
-  top: 10%;
-  left: 10%;
-  font-size: 20px;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+
+#maximage img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+}
+
+.content {
+  height: 100%;
+}
+
+.content .slogan {
+  position: absolute;
+  top: 2em;
+  left: 1em;
+  font-size: 1.5em;
+  color: #3a342b;
+  text-shadow: 1px 1px 0px #fff;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 /* footer */
 
+footer {
+  position: absolute;
+  background: #fee;
+  bottom: 0;
+  width: 100%;
+}
+
 footer section {
-  background: #fff;
+  margin-top: 1em;
 }
 
 footer section p {
