@@ -88,6 +88,9 @@ nav li {
 
 .central {
   position: relative;
+}
+
+.index central {
   height: 500px;
 }
 
@@ -217,13 +220,34 @@ nav li {
   text-align: right;
 }
 
+.narocanje .content p {
+  margin-top:0.5em;
+  line-height: 132%;
+  text-shadow: 1px 1px 0 #fff;
+}
+
+.narocanje .plant {
+  position: absolute;
+  top: 5em;
+  right: -10em;
+  width: 40em;
+  height: 40em;
+  background: #fff;
+  background-image: url(../img/narocanje-back.png);
+  background-size: cover;
+  z-index: -1;
+}
+
 /* footer */
 
 footer {
-  position: absolute;
   background: #fee;
-  bottom: 0;
   width: 100%;
+}
+
+.index footer {
+  position: absolute;
+  bottom: 0;
 }
 
 footer section p {
