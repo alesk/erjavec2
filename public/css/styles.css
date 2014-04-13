@@ -1,5 +1,9 @@
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro|Titillium+Web&subset=latin,latin-ext);
 
+html, body {
+  height: 100%;
+}
+
 body {
   font-family: 'Titillium Web', sans-serif;
 }
@@ -90,8 +94,8 @@ nav li {
   position: relative;
 }
 
-.index central {
-  height: 500px;
+.index .central {
+  height: 90%;
 }
 
 #maximage {
@@ -234,11 +238,7 @@ nav li {
 footer {
   background: #fee;
   width: 100%;
-}
-
-.index footer {
-  position: absolute;
-  bottom: 0;
+  min-height: 25em;
 }
 
 footer section p {
