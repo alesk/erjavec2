@@ -39,6 +39,8 @@ $('#maximage').rotate();
 
 if (location.host.indexOf('kuhinje-erjavec.si') !== -1) {
     setTimeout(
-        function(){$('.rant').animate({right: 30}, 500, 'swing');},
+    function(){$('.rant')
+    .css({display: 'block'})
+        .animate({right: 30}, 500, 'swing');},
         9000);
 }

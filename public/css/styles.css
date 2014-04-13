@@ -133,7 +133,8 @@ nav li {
 
 .rant {
   position: absolute;
-  bottom: 1em;
+  display: none;
+  bottom: 32%;
   right: -30em;
   padding: 3em 1em 3em 1em;
 
