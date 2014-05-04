@@ -111,8 +111,27 @@ nav li {
   position: absolute;
   top: 0;
   left: 0;
-
 }
+
+/* slideshow settings */
+#slideshow {
+  position: relative;
+  margin: 1em 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+#slideshow img {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
 
 .prev::after { content:"<"; }
 .next::after { content:">"; }
@@ -120,26 +139,29 @@ nav li {
 .prev, 
 .next {
   position: absolute;
-  font-size: 10em;
+  font-size: 6em;
   cursor: pointer;
   color: #eee;
   z-index: 10;
+  opacity: 0.66;
+  -webkit-transform: scaleY(2.5);
+  transform: scaleY(2.5);
 }
 
 .prev:hover, 
 .next:hover {
-  color: #ddd;
+  opacity: 1;
 }
 
 
 .prev {
   top: 45%;
-  left: 10%;
+  left: 5%;
 }
 
 .next {
   top: 45%;
-  right: 10%;
+  right: 5%;
 }
 
 .content {
@@ -156,6 +178,104 @@ nav li {
   letter-spacing: 1px;
   line-height: 132%;
 }
+
+.content ul {
+  margin: 1em 0;
+}
+
+.content li {
+  margin-top:0.5em;
+}
+/* galerija */
+
+.strawberry {
+  position: absolute;
+  width: 4.5em;
+  height: 6em;
+  margin: 0 1em 0 0;
+  left: 0;
+  background-image: url('../img/strawberry.png');
+  background-size: contain;
+  background-repeat: no-repeat no-repeat;
+  cursor: pointer;
+}
+
+.abstract {
+  margin-left: 5em;
+}
+
+ul.gallery > li {
+  padding: 1em;
+  vertical-align: bottom;
+  text-align: left;
+}
+
+.gallery {
+  margin: 1em 0em;
+  width: 100%;
+}
+
+ul.gallery li {
+  position: relative;
+  text-align: right;
+  padding: 0;
+  margin: 0;
+  vertical-align: bottom;
+  display: inline-block;
+  cursor: pointer;
+  background-size: cover;
+
+}
+
+ul.gallery  li  span {
+  position: absolute;
+  right: 0.5em;
+  bottom: 0.5em;
+  font-size: 1.1em;
+  color: white;
+}
+
+.gallery .kuhinje,
+.gallery .bivalni-prostori {
+  font-size: 1.38em;
+}
+
+.gallery .kuhinje {
+  width: 50%;
+  height: 20em;
+  background-image: url('../img/gallery/kuhinje/_MG_2211-1024.jpg')
+}
+
+.gallery .bivalni-prostori {
+  width: 50%;
+  height: 20em;
+  background-image: url('../img/gallery/bivalni-prostori/_MG_3002-1024.jpg')
+}
+
+.gallery .spalnice {
+  width: 25%;
+  height: 12em;
+  background-image: url('../img/gallery/spalnice/_MG_2657-1024.jpg')
+}
+
+.gallery .otroske-sobe {
+  width: 25%;
+  height: 12em;
+  background-image: url('../img/gallery/otroske-sobe/_MG_2661-1024.jpg')
+}
+
+.gallery .predsobe {
+  width: 25%;
+  height: 12em;
+  background-image: url('../img/gallery/predsobe/_MG_2880-1024.jpg')
+}
+
+.gallery .garderobe {
+  width: 25%;
+  height: 12em;
+  background-image: url('../img/gallery/garderobe/_MG_2686-1024.jpg')
+}
+
 
 /* rant */
 
@@ -216,7 +336,7 @@ nav li {
 
 
 .narocanje .content h1 {
-  margin-top: 1em;
+  margin: 0.7em 0 0.5em 0;
   font-size: 3em;
 }
 
@@ -231,6 +351,12 @@ nav li {
   position: relative;
   font-size: 2em;
   margin: 1em 0 0 0em;
+}
+
+.narocanje .content h3 {
+  position: relative;
+  font-size: 1.6em;
+  margin: 1em 0 0 0;
 }
 
 .narocanje .content h2 .number {
@@ -262,10 +388,11 @@ nav li {
   z-index: -1;
 }
 
+
 /* footer */
 
 footer {
-  background: #fee;
+  background: #fff;
   width: 100%;
   min-height: 25em;
 }

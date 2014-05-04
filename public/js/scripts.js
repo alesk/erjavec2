@@ -34,7 +34,7 @@ function getXAttributes(el) {
         fadeDuration: 5000, // the length of animation 
         slideDuration: 500, // the length of animation 
         rotatePeriod: 5000,  // wait time before next fade 
-        arrows: true,
+        arrows: false,
         nextMethod: 'fade'
     };
 
@@ -42,9 +42,9 @@ function getXAttributes(el) {
     $.fn.rotate = function(options) {
 
         function run() {
-            var $parent = $(this);
+            var $root = $(this),
                 domOptions = getXAttributes(this),
-                settings = $.extend(DEFAULTS, domOptions, options),
+                settings = $.extend({}, DEFAULTS, domOptions, options),
                 timedId = null;
 
             var timedNext = function(delay) {
@@ -53,12 +53,12 @@ function getXAttributes(el) {
             };
 
             function fadeNext() {
-                $('img:last', $parent).animate(
+                $('img:last', $root).animate(
                     {'opacity': 0}, 
                     settings.fadeDuration, 
                     function() {
                         var $this = $(this);
-                        $parent.prepend($this);
+                        $root.prepend($this);
                         $this.css({opacity:1});
                         timedNext(settings.rotatePeriod);
                         loadTriple();
@@ -66,10 +66,10 @@ function getXAttributes(el) {
             }
 
             function slidePrev() {
-                var $first = $('img:first', $parent);
+                var $first = $('img:first', $root);
 
                 $first.css({'left':'-100%'});
-                $parent.append($first);
+                $root.append($first);
                 $first.animate(
                     {'left': '0'}, 
                     settings.slideDuration, 
@@ -80,12 +80,12 @@ function getXAttributes(el) {
             }
 
             function slideNext() {
-                $('img:last', $parent).animate(
+                $('img:last', $root).animate(
                     {'left': '-100%'}, 
                     settings.slideDuration, 
                     function() {
                         var $this = $(this);
-                        $parent.prepend($this);
+                        $root.prepend($this);
                         $this.css({left:0});
                         loadTriple();
                         timedNext(settings.rotatePeriod);
@@ -95,13 +95,13 @@ function getXAttributes(el) {
 
             // lazy loads pair of images
             function loadTriple() {
-              var x = $('img:first', $parent).add('img:last', $parent).add($('img:last', $parent).prev()).each(function() {
+              var x = $('img:first', $root).add('img:last', $root).add($('img:last', $root).prev()).each(function() {
                 this.setAttribute('src', this.getAttribute('x-src'));
               });
             }
 
             if (settings.arrows) {
-              $parent.parent()
+              $root.parent()
                 .prepend("<div class='prev'></div>")
                 .prepend("<div class='next'></div>");
 
@@ -110,6 +110,10 @@ function getXAttributes(el) {
             }
 
             loadTriple();
+
+            // set last image to relative position to give box a size
+            $('img:last', $root).css('position', 'relative');
+
             timedNext(settings.warmUpTime);
         }
 
@@ -119,9 +123,10 @@ function getXAttributes(el) {
 
 
 $('#maximage').rotate();
+$('#slideshow').rotate({arrows:true, nextMethod: 'slide'});
 
 // all elements with x-href attribute are hyper-links
-$('*[x-href]').on('click', function() {window.location.href = this.getAttribute('x-href')})
+$('*[x-href]').on('click', function() {window.location.href = this.getAttribute('x-href');});
 
 if (location.host.indexOf('kuhinje-erjavec.si') !== -1) {
     setTimeout(
