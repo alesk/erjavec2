@@ -42,6 +42,7 @@ function getXAttributes(el) {
     $.fn.rotate = function(options) {
 
         function run() {
+            // this points to specific elemtn of collection (it is DOM Element)
             var $root = $(this),
                 domOptions = getXAttributes(this),
                 settings = $.extend({}, DEFAULTS, domOptions, options),
@@ -117,6 +118,7 @@ function getXAttributes(el) {
             timedNext(settings.warmUpTime);
         }
 
+        // this is the jQuery object. On each elemnt the function run() is called
         return this.each(run);
   };
 })(jQuery);
